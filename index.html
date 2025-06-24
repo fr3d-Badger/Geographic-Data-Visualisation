@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Choropleth Map using Leaflet.js</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!--Leaflet.js map libraries-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-choropleth@0.1.0/dist/leaflet-choropleth.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-choropleth@0.1.0/dist/leaflet-choropleth.js"></script>
+    <script src="https://unpkg.com/leaflet.3d@0.1.0/dist/leaflet.3d.js"></script>
+    <!--Library for graph-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <h1>Population of England 2021</h1>
+  
+    <!-- Main container holds left and right columns -->
+    <div id="main-container">
+
+      
+      
+      <!-- LEFT SIDE: Map on top, legend below -->
+        <div id="left-panel">
+          <h1>Choropleth Map Showing Population Density</h1>
+            <div id="map"></div>
+            <div id="legend" class="legend">
+                <div class="legend-title">Population Density</div>
+                <div class="legend-items">
+                <div class="legend-item"><div class="legend-color" style="background-color: #ffeda0;"></div><span>&lt; 100</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #ffe28b;"></div><span>100 – 200</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #ffd776;"></div><span>200 – 400</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #ffcd61;"></div><span>400 – 600</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #ffcd61;"></div><span>600 – 900</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #ffc14d;"></div><span>900 – 1200</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #feb739;"></div><span>1200 – 1500</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #fea926;"></div><span>1500 – 1800</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #fd9a18;"></div><span>1800 – 2100</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #fb8913;"></div><span>2100 – 2400</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #f97812;"></div><span>2400 – 2700</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #f76613;"></div><span>2700 – 3000</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #f45416;"></div><span>3000 – 3300</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #f1421a;"></div><span>3300 – 3600</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #ee311d;"></div><span>3600 – 3900</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #eb2120;"></div><span>3900 – 4200</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #e71622;"></div><span>4200 – 4500</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #df1120;"></div><span>4500 – 4800</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #d60c1e;"></div><span>4800 – 5100</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #cc071c;"></div><span>5100 – 5400</span></div>
+                <div class="legend-item"><div class="legend-color" style="background-color: #f03b20;"></div><span>&gt; 5400</span></div>
+          </div>
+        </div>
+    </div>
+  
+      <!-- RIGHT SIDE: Scatter chart and textbox -->
+      <div id="right-panel">
+        <h2>Population Density vs. Total Population</h2>
+        <div id="scatter-wrapper">
+          <canvas id="scatterChart"></canvas>
+        </div>
+        <div id="text-box">
+          <p>
+            The population of England has been plotted in a choropleth map and a scatter graph.
+            The density and total population has been recorded. Data for population density has been collected from
+            <a href="https://www.nomisweb.co.uk/query/construct/submit.asp?menuOpt=201&fmt=csv&lr=geography&lc=date&fn="> Nomis, official census and labour market and statistics.</a>
+          </p>
+        </div>
+      </div>
+  
+    </div>
+  
+    <script src="script.js"></script>
+  </body>
+
+
+</html>
